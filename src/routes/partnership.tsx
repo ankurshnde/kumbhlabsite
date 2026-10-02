@@ -46,9 +46,21 @@ async function handlePartnerSubmit(values: ContactFormValues) {
     body: JSON.stringify(values),
   });
 
-  if (!res.ok) {
-    const errorData = (await res.json().catch(() => ({}))) as { error?: string };
-    throw new Error(errorData.error || "Failed to submit inquiry. Please try again.");
+  const data = (await res.json().catch(() => ({}))) as {
+    success?: boolean;
+    needsActivation?: boolean;
+    message?: string;
+    error?: string;
+  };
+
+  if (!res.ok || data.error) {
+    throw new Error(data.error || "Failed to submit inquiry. Please try again.");
+  }
+
+  if (data.needsActivation) {
+    throw new Error(
+      "One-time setup: FormSubmit has sent a confirmation email to the inbox. Please click 'Activate Form' in that email to enable forwarding.",
+    );
   }
 }
 

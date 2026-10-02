@@ -66,6 +66,8 @@ export const Route = createFileRoute("/api/partnership")({
                 headers: {
                   "Content-Type": "application/json",
                   Accept: "application/json",
+                  Origin: "https://kumbhlabs.org",
+                  Referer: "https://kumbhlabs.org/partnership",
                 },
                 body: JSON.stringify({
                   name,
@@ -78,9 +80,24 @@ export const Route = createFileRoute("/api/partnership")({
               },
             );
 
-            if (!relayResponse.ok) {
-              const relayError = await relayResponse.text();
-              console.warn("Relay notice:", relayError);
+            const relayData = (await relayResponse.json().catch(() => ({}))) as {
+              success?: string | boolean;
+              message?: string;
+            };
+
+            if (relayData.success === false || relayData.success === "false") {
+              console.warn("Relay notice:", relayData.message);
+              // If FormSubmit requires one-time activation, return message so user knows
+              if (relayData.message?.includes("Activation")) {
+                return new Response(
+                  JSON.stringify({
+                    success: false,
+                    needsActivation: true,
+                    message: relayData.message,
+                  }),
+                  { status: 200, headers: { "Content-Type": "application/json" } },
+                );
+              }
             }
           }
 
