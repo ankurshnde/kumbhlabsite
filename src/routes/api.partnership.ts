@@ -58,9 +58,12 @@ export const Route = createFileRoute("/api/partnership")({
               console.error("Resend error:", errData);
             }
           } else {
-            // Forward securely via server-side relay
+            // Forward securely via server-side relay using FormSubmit alias token
+            const endpointToken =
+              process.env.PARTNERSHIP_FORM_TOKEN || "5b09d6112bd9d0509f468e1930797a37";
+
             const relayResponse = await fetch(
-              `https://formsubmit.co/ajax/${encodeURIComponent(recipientEmail)}`,
+              `https://formsubmit.co/ajax/${endpointToken}`,
               {
                 method: "POST",
                 headers: {
