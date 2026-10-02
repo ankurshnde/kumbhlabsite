@@ -1,0 +1,28 @@
+# KumbhLabs
+
+> KumbhLabs is an R&D initiative for an AI-first Kumbh Mela, building for the Kumbh ecosystem beginning with the Nashik Simhastha Kumbh Mela 2027. Its flagship deployment is KumbhDoot, an open AI agent framework for every pilgrim.
+
+Key facts:
+- Focus: decentralized agentic AI, edge intelligence, personal AI agents, civic and population-scale intelligence.
+- Architecture layers: Personal (edge agent), Ecosystem (interoperable providers), Population Intelligence (shared public rails).
+- Proving ground: Kumbh Mela 2027, Nashik - a temporary city of tens of millions of people.
+- Parent initiative: Project NANDA (https://projectnanda.org).
+- Deployment: KumbhDoot (https://kumbhdoot.org).
+
+## Pages
+- [Home](https://kumbhlabs.org/): Overview, thesis, milestones, roadmap and system architecture.
+- [KumbhDoot](https://kumbhlabs.org/kumbhdoot): The flagship AI agent framework, three-layer and sovereign agent architecture, team and contributors.
+- [Research](https://kumbhlabs.org/research): Research areas and publications.
+- [About](https://kumbhlabs.org/about): Who we are and the ecosystem around KumbhLabs.
+- [Get Involved](https://kumbhlabs.org/get-involved): How researchers (working groups), startups (interest form) and industry partners/investors (contact@kumbhalabs.org) can join.
+- [Blog](https://kumbhlabs.org/blog): Writing on agentic systems and population-scale infrastructure.
+
+## Publications
+- [Agentic AI for population-scale gatherings (preprint, 2026)](https://arxiv.org/abs/2608.07520)
+- [AI Agents for Kumbh Mela - MIT Media Lab](https://www.media.mit.edu/publications/ai-agents-for-kumbh-mela/)
+
+## Apps
+- iOS: https://apps.apple.com/in/app/kumbh-labs/id6761781210
+- Android: https://play.google.com/store/apps/details?id=app.kumbhdoot
+
+Attribution: cite as "KumbhLabs (kumbhlabs.org)".
