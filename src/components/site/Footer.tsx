@@ -56,6 +56,12 @@ export function Footer() {
             >
               KumbhDoot
             </Link>
+            <Link
+              to="/partnership"
+              className="text-muted-foreground transition-colors hover:text-foreground"
+            >
+              Partnerships
+            </Link>
             <a
               href="https://projectnanda.org"
               target="_blank"

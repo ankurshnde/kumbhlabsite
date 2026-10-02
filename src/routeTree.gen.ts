@@ -14,8 +14,10 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as GetInvolvedRouteImport } from './routes/get-involved'
 import { Route as KumbhdootRouteImport } from './routes/kumbhdoot'
+import { Route as PartnershipRouteImport } from './routes/partnership'
 import { Route as ResearchRouteImport } from './routes/research'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as ApiPartnershipRouteImport } from './routes/api.partnership'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -42,6 +44,11 @@ const KumbhdootRoute = KumbhdootRouteImport.update({
   path: '/kumbhdoot',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PartnershipRoute = PartnershipRouteImport.update({
+  id: '/partnership',
+  path: '/partnership',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ResearchRoute = ResearchRouteImport.update({
   id: '/research',
   path: '/research',
@@ -52,6 +59,11 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPartnershipRoute = ApiPartnershipRouteImport.update({
+  id: '/api/partnership',
+  path: '/api/partnership',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -59,8 +71,10 @@ export interface FileRoutesByFullPath {
   '/blog': typeof BlogRoute
   '/get-involved': typeof GetInvolvedRoute
   '/kumbhdoot': typeof KumbhdootRoute
+  '/partnership': typeof PartnershipRoute
   '/research': typeof ResearchRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/api/partnership': typeof ApiPartnershipRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -68,8 +82,10 @@ export interface FileRoutesByTo {
   '/blog': typeof BlogRoute
   '/get-involved': typeof GetInvolvedRoute
   '/kumbhdoot': typeof KumbhdootRoute
+  '/partnership': typeof PartnershipRoute
   '/research': typeof ResearchRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/api/partnership': typeof ApiPartnershipRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -78,8 +94,10 @@ export interface FileRoutesById {
   '/blog': typeof BlogRoute
   '/get-involved': typeof GetInvolvedRoute
   '/kumbhdoot': typeof KumbhdootRoute
+  '/partnership': typeof PartnershipRoute
   '/research': typeof ResearchRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/api/partnership': typeof ApiPartnershipRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -89,8 +107,10 @@ export interface FileRouteTypes {
     | '/blog'
     | '/get-involved'
     | '/kumbhdoot'
+    | '/partnership'
     | '/research'
     | '/sitemap.xml'
+    | '/api/partnership'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -98,8 +118,10 @@ export interface FileRouteTypes {
     | '/blog'
     | '/get-involved'
     | '/kumbhdoot'
+    | '/partnership'
     | '/research'
     | '/sitemap.xml'
+    | '/api/partnership'
   id:
     | '__root__'
     | '/'
@@ -107,8 +129,10 @@ export interface FileRouteTypes {
     | '/blog'
     | '/get-involved'
     | '/kumbhdoot'
+    | '/partnership'
     | '/research'
     | '/sitemap.xml'
+    | '/api/partnership'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -117,8 +141,10 @@ export interface RootRouteChildren {
   BlogRoute: typeof BlogRoute
   GetInvolvedRoute: typeof GetInvolvedRoute
   KumbhdootRoute: typeof KumbhdootRoute
+  PartnershipRoute: typeof PartnershipRoute
   ResearchRoute: typeof ResearchRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  ApiPartnershipRoute: typeof ApiPartnershipRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -158,6 +184,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof KumbhdootRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/partnership': {
+      id: '/partnership'
+      path: '/partnership'
+      fullPath: '/partnership'
+      preLoaderRoute: typeof PartnershipRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/research': {
       id: '/research'
       path: '/research'
@@ -172,6 +205,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/partnership': {
+      id: '/api/partnership'
+      path: '/api/partnership'
+      fullPath: '/api/partnership'
+      preLoaderRoute: typeof ApiPartnershipRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -181,8 +221,10 @@ const rootRouteChildren: RootRouteChildren = {
   BlogRoute: BlogRoute,
   GetInvolvedRoute: GetInvolvedRoute,
   KumbhdootRoute: KumbhdootRoute,
+  PartnershipRoute: PartnershipRoute,
   ResearchRoute: ResearchRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  ApiPartnershipRoute: ApiPartnershipRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

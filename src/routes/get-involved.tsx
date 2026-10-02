@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { Reveal } from "@/components/site/Reveal";
 import researcherAsset from "@/assets/researcher-working-group.png.asset.json";
 import startupAsset from "@/assets/startup-team.png.asset.json";
@@ -193,10 +193,16 @@ function GetInvolvedPage() {
                     message.
                   </p>
                 </div>
-                <div className="lg:justify-self-end">
+                <div className="flex flex-wrap items-center gap-3 lg:justify-self-end">
+                  <Link
+                    to="/partnership"
+                    className="inline-flex items-center rounded-full bg-foreground px-6 py-2.5 text-sm font-medium text-background transition-colors duration-300 hover:bg-foreground/85"
+                  >
+                    Partnership form
+                  </Link>
                   <a
                     href="mailto:contact@kumbhalabs.org"
-                    className="inline-flex items-center rounded-full bg-foreground px-6 py-2.5 text-sm font-medium text-background transition-colors duration-300 hover:bg-foreground/85"
+                    className="inline-flex items-center rounded-full border border-border px-6 py-2.5 text-sm font-medium text-foreground transition-colors duration-300 hover:bg-muted"
                   >
                     contact@kumbhalabs.org
                   </a>
