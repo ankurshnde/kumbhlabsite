@@ -1,29 +1,55 @@
-# Welcome to your Lovable project
+# Kumbh Labs — Official Website
 
-This project was built with [Lovable](https://lovable.dev).
+> Intelligence for places where millions gather. A research and development initiative for an AI-first Kumbh Mela (Nashik Simhastha 2027).
 
-## Build with Lovable
+---
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
+## Tech Stack
 
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
+- **Framework**: [TanStack Start](https://tanstack.com/start) + [TanStack Router](https://tanstack.com/router)
+- **UI**: [React 19](https://react.dev), [Tailwind CSS v4](https://tailwindcss.com), [Radix UI](https://www.radix-ui.com/)
+- **Build Tool**: [Vite](https://vitejs.dev)
+- **Server Runtime / Deployment**: [Nitro](https://nitro.unjs.io) targeting [Cloudflare Pages & Workers](https://pages.cloudflare.com/)
 
-## Development
+---
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+## Local Development
 
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
+Ensure you have Node.js 20+ installed.
+
+```bash
+# Install dependencies
+npm install
+
+# Start local development server (runs on http://localhost:8080)
 npm run dev
+
+# Format code
+npm run format
+
+# Run linter
+npm run lint
+
+# Production build
+npm run build
+
+# Preview production build locally
+npm run preview
 ```
 
-## Built with
+---
 
-- TanStack Start
-- TypeScript
-- React
-- Tailwind CSS
+## Cloudflare Deployment
+
+This application builds with Nitro and is configured for zero-configuration Cloudflare deployment.
+
+### Deploying to Cloudflare Pages:
+
+1. Connect your repository (`https://github.com/ankurshnde/kumbhlabsite.git`) in the [Cloudflare Dashboard](https://dash.cloudflare.com/) under **Workers & Pages** -> **Create application** -> **Pages** -> **Connect to Git**.
+2. Set build settings:
+   - **Framework Preset**: `None`
+   - **Build command**: `npm run build`
+   - **Build output directory**: `.output/public`
+3. Environment Variables (optional):
+   - `PARTNERSHIP_FORM_TOKEN`: FormSubmit alias token (e.g. `5b09d6112bd9d0509f468e1930797a37`)
+   - `RESEND_API_KEY`: If using Resend for email delivery

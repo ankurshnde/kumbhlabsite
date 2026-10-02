@@ -62,26 +62,23 @@ export const Route = createFileRoute("/api/partnership")({
             const endpointToken =
               process.env.PARTNERSHIP_FORM_TOKEN || "5b09d6112bd9d0509f468e1930797a37";
 
-            const relayResponse = await fetch(
-              `https://formsubmit.co/ajax/${endpointToken}`,
-              {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                  Accept: "application/json",
-                  Origin: "https://kumbhlabs.org",
-                  Referer: "https://kumbhlabs.org/partnership",
-                },
-                body: JSON.stringify({
-                  name,
-                  email,
-                  _subject: `[Kumbh Labs Partner Inquiry] ${subject || name}`,
-                  subject: subject || "Partnership Proposal",
-                  message,
-                  _template: "table",
-                }),
+            const relayResponse = await fetch(`https://formsubmit.co/ajax/${endpointToken}`, {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+                Origin: "https://kumbhlabs.org",
+                Referer: "https://kumbhlabs.org/partnership",
               },
-            );
+              body: JSON.stringify({
+                name,
+                email,
+                _subject: `[Kumbh Labs Partner Inquiry] ${subject || name}`,
+                subject: subject || "Partnership Proposal",
+                message,
+                _template: "table",
+              }),
+            });
 
             const relayData = (await relayResponse.json().catch(() => ({}))) as {
               success?: string | boolean;
